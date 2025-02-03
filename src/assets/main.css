@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.input-border{
+    @apply border border-natural200 focus:outline-none focus:border-primary500 focus:ring-primary500
+  }
+
+.btn-primary{
+    @apply bg-primary500 hover:bg-primary400 text-white py-[12px] px-[12px]
+}
+
+.btn-border-icon{
+  @apply flex flex-row gap-2 border border-primary500 border-solid hover:text-primary400 text-primary500 p-[8px] rounded-md
+}
