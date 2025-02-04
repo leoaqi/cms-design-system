@@ -51,7 +51,7 @@
 
                     <td class="py-5 px-4 border-b text-content-2 font-normal">
                         <div class="flex flex-row gap-3 items-center">
-                            <img :src="icEdit" alt="">
+                            <img :src="icEdit" alt="" @click="toDetailUser(index)" class="cursor-pointer">
                             <img :src="icDelete" alt="">
                         </div>
                     </td>
@@ -78,6 +78,10 @@ const router = useRouter()
 
 const toAddUser = () => {
     router.push('/user-management/add')
+}
+
+const toDetailUser = (id) => {
+    router.push(`/user-management/${id}`)
 }
 const tableData = [
     {

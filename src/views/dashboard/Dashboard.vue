@@ -222,7 +222,7 @@ const formatCurrency = (value) => {
 };
 
 const chartData = ref({
-    Jan: [55, 30, 15],
+    Jan: [90, 90, 15],
     Feb: [65, 30, 25],
     Mar: [80, 25, 20],
     Apr: [75, 25, 20],

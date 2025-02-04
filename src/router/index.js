@@ -13,6 +13,7 @@ import DepartementDetail from '@/views/departement/DepartementDetail.vue';
 import AddBranch from '@/views/branch/AddBranch.vue';
 import DetailBranch from '@/views/branch/DetailBranch.vue';
 import AddUser from '@/views/user_management/AddUser.vue';
+import DetailUser from '@/views/user_management/DetailUser.vue';
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
@@ -87,6 +88,12 @@ const router = createRouter({
                             name: 'Add New User',
                             component: AddUser,
                             meta: { breadcrumb: 'Add New User' },
+                        },
+                        {
+                            path: ':id',
+                            name: 'Detail User',
+                            component: DetailUser,
+                            meta: { breadcrumb: 'Detail User' },
                         },
                     ]
                 },
