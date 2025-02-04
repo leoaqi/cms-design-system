@@ -36,6 +36,6 @@ import { useRouter } from 'vue-router';
 const router = useRouter()
 
 const backToDepartement = () => {
-    router.push('/department')
+    router.back()
 }
 </script>

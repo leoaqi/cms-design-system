@@ -90,6 +90,13 @@ import icDelete from '@/assets/icons/ic_delete.svg'
 import ButtonAdd from '@/components/buttons/ButtonAdd.vue';
 import SearchInput from '@/components/SearchInput.vue';
 import Pagination from '@/components/Pagination.vue';
+import { useRouter } from 'vue-router';
+
+const router = useRouter()
+
+const toAddForm = () => {
+    router.push('/department/add');
+}
 
 const tableData = [
     {

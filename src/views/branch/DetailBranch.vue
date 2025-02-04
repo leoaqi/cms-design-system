@@ -137,6 +137,13 @@ import ButtonAdd from '@/components/buttons/ButtonAdd.vue';
 import SearchInput from '@/components/SearchInput.vue';
 import Pagination from '@/components/Pagination.vue';
 import icProfile1 from '@/assets/icons/ic_profile_1.png';
+import { useRouter } from 'vue-router';
+
+const router = useRouter()
+
+const toAddForm = () =>{
+    router.push('/branch/add')
+}
 
 const tableData = [
     {

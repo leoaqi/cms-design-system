@@ -1,7 +1,7 @@
 <template>
-    <div class="flex flex-row justify-between">
+    <div class="flex flex-row justify-between items-center">
         <h1 class="font-medium text-body">User Management</h1>
-        <ButtonAdd>
+        <ButtonAdd @click="toAddUser">
             <h1 class="text-content-2 font-medium">+ Add New User</h1>
         </ButtonAdd>
     </div>
@@ -72,6 +72,13 @@ import { RiCloseLine } from '@remixicon/vue';
 import icEdit from '@/assets/icons/ic_edit.svg'
 import icDelete from '@/assets/icons/ic_delete.svg'
 import ButtonAdd from '@/components/buttons/ButtonAdd.vue';
+import { useRouter } from 'vue-router';
+
+const router = useRouter()
+
+const toAddUser = () => {
+    router.push('/user-management/add')
+}
 const tableData = [
     {
         "name": "James Lee Hall",

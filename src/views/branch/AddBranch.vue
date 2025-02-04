@@ -10,7 +10,7 @@
                 <div class="pt-3">
                     <h1 class="text-content text-textPrimary pb-2">Departement</h1>
                     <select v-model="selectedDepartment"
-                        class="px-4 py-2 border border-gray-300 rounded-md w-full input-border"
+                        class="px-4 py-3 border border-gray-300 rounded-md w-full input-border"
                         placeholder="Select a department">
                         <option :value="null" disabled selected>
                             Select a department
@@ -31,7 +31,7 @@
                 <div class="pt-1">
                     <h1 class="text-content text-textPrimary pb-2">Head of Branch</h1>
                     <select v-model="headOfBranch"
-                        class="px-4 py-2 border border-gray-300 rounded-md w-full input-border"
+                        class="px-4 py-3 border border-gray-300 rounded-md w-full input-border"
                         placeholder="Select a department">
                         <option :value="null" disabled selected>
                             Select a department

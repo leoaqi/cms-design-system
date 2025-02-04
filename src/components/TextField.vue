@@ -1,6 +1,6 @@
 <template>
-    <input type="text"
-        class="w-full py-2 px-4 rounded-lg input-border"
+    <input :type="type"
+        class="w-full py-3 px-4 rounded-lg input-border"
         :placeholder="hint" />
 </template>
 

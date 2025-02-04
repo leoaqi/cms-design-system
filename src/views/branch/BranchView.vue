@@ -1,5 +1,5 @@
 <template>
-    <div class="flex flex-row justify-between">
+    <div class="flex flex-row justify-between items-center">
         <h1 class="font-medium text-body">Master Data Branch</h1>
         <ButtonAdd @click="toAddForm">
             <h1 class="text-content-2 font-medium">+ Add New Branch</h1>

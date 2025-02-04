@@ -1,5 +1,5 @@
 <template>
-    <h1>Approval</h1>
+    <h1 class="font-medium text-body">Approval</h1>
     <div class="border border-natural200 px-4 py-10 bg-white mt-8 rounded-xl">
         <Search hint="Search by departement name" />
         <table class="min-w-full bg-white border-none">

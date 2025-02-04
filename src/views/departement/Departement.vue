@@ -1,7 +1,6 @@
 <template>
-    <div class="flex flex-row justify-between">
+    <div class="flex flex-row justify-between items-center">
         <h1 class="font-medium text-body">Master Data Department</h1>
-        <!-- <ButtonForm @click="toAddForm" title="+ Add New Department" type="block" /> -->
         <ButtonAdd @click="toAddForm">
             <h1 class="text-content-2 font-medium">+ Add New Department</h1>
         </ButtonAdd>

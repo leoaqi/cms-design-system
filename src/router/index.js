@@ -12,6 +12,7 @@ import AddDepartement from '@/views/departement/AddDepartement.vue';
 import DepartementDetail from '@/views/departement/DepartementDetail.vue';
 import AddBranch from '@/views/branch/AddBranch.vue';
 import DetailBranch from '@/views/branch/DetailBranch.vue';
+import AddUser from '@/views/user_management/AddUser.vue';
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
@@ -24,11 +25,11 @@ const router = createRouter({
                     path: 'dashboard',
                     name: 'Dashboard',
                     component: Dashboard,
-                    meta: {breadcrumb: 'Dashboard'}
+                    meta: { breadcrumb: 'Dashboard' }
                 },
                 {
                     path: 'department',
-                    meta: {breadcrumb: 'Department'},
+                    meta: { breadcrumb: 'Department' },
                     children: [
                         {
                             path: '',
@@ -39,19 +40,19 @@ const router = createRouter({
                             path: 'add',
                             name: 'Add New Department',
                             component: AddDepartement,
-                            meta: {breadcrumb: 'Add New Department'}
+                            meta: { breadcrumb: 'Add New Department' }
                         },
                         {
                             path: ':id',
                             name: 'Detail Department',
                             component: DepartementDetail,
-                            meta: {breadcrumb: 'Detail Department'}
+                            meta: { breadcrumb: 'Detail Department' }
                         }
                     ]
                 },
                 {
                     path: 'branch',
-                    meta: {breadcrumb: 'Branch'},
+                    meta: { breadcrumb: 'Branch' },
                     children: [
                         {
                             path: '',
@@ -62,39 +63,50 @@ const router = createRouter({
                             path: 'add',
                             name: 'Add Branch',
                             component: AddBranch,
-                            meta: {breadcrumb: 'Add Branch'}
+                            meta: { breadcrumb: 'Add Branch' }
                         },
                         {
                             path: ':id',
                             name: 'Detail Branch',
                             component: DetailBranch,
-                            meta: {breadcrumb: 'Detail Branch'}
+                            meta: { breadcrumb: 'Detail Branch' }
                         },
                     ]
                 },
                 {
                     path: 'user-management',
-                    name: 'User Management',
-                    component: UserManagementView,
-                    meta: {breadcrumb: 'User Management'}
+                    meta: { breadcrumb: 'User Management' },
+                    children: [
+                        {
+                            path: '',
+                            name: 'User Management',
+                            component: UserManagementView,
+                        },
+                        {
+                            path: 'add',
+                            name: 'Add New User',
+                            component: AddUser,
+                            meta: { breadcrumb: 'Add New User' },
+                        },
+                    ]
                 },
                 {
                     path: 'role-management',
                     name: 'Role Management',
                     component: RoleManagementView,
-                    meta: {breadcrumb: 'Role Management'}
+                    meta: { breadcrumb: 'Role Management' }
                 },
                 {
                     path: 'approval',
                     name: 'Approval',
                     component: ApprovalView,
-                    meta: {breadcrumb: 'Approval'}
+                    meta: { breadcrumb: 'Approval' }
                 },
                 {
                     path: 'report',
                     name: 'Report',
                     component: ReportView,
-                    meta: {breadcrumb: 'Report'}
+                    meta: { breadcrumb: 'Report' }
                 },
             ],
             redirect: '/dashboard'
