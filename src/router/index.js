@@ -147,7 +147,7 @@ const router = createRouter({
                     meta: { breadcrumb: 'Report' }
                 },
             ],
-            redirect: '/dashboard'
+            redirect: '/login'
         },
         {
             path: '/login',
