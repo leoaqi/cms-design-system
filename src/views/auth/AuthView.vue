@@ -19,7 +19,7 @@ import { useRoute } from 'vue-router';
 import ResetPasswordFormView from './forms/ResetPasswordFormView.vue';
 import LoginFormView from './forms/LoginFormView.vue';
 import ForgetPasswordFormView from './forms/ForgetPasswordFormView.vue';
-import ilustration from '@/Assets/images/ilustasi.jpeg';
+import ilustration from '@/assets/images/ilustasi.jpeg';
 import { computed, ref } from 'vue';
 
 
