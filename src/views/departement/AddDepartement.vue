@@ -19,7 +19,7 @@
                 </div>
             </div>
         </div>
-        <div class="w-full h-[1px] bg-natural200 my-3"></div>
+        <div class="horizontal-divider"></div>
         <div class="flex justify-center py-4 px-6 gap-4 mx-auto max-w-screen-xl">
             <ButtonForm title="Cancel" type="outline-border" class="w-[232px] " @click="backToDepartement" />
             <ButtonForm title="Add New Departement" class="w-[232px]" @click="backToDepartement" />

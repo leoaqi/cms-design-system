@@ -1,7 +1,13 @@
 <template>
     <h1 class="font-medium text-body">Approval</h1>
     <div class="border border-natural200 px-4 py-10 bg-white mt-8 rounded-xl">
-        <Search hint="Search by departement name" />
+        <div class="flex flex-row items-center gap-4">
+            <Search hint="Search by request title, related to & requested by" />
+            <div class="border border-natural200 px-4 py-3 bg-white rounded-lg flex flex-row gap-2 items-center mb-5">
+                <h1 class="text-content font-normal text-textScondary">Filter</h1>
+                <RiFilter3Line class="w-[16px] h-[16px] text-textScondary" />
+            </div>
+        </div>
         <table class="min-w-full bg-white border-none">
             <thead class="bg-primary100 border-none">
                 <tr class="text-primary500">
@@ -22,15 +28,16 @@
                     <td class="py-5 px-4 border-b text-content-2 font-normal">{{ row.requestedBy }}</td>
                     <td class="py-5 px-4 border-b text-content-2 font-normal">{{ row.datetime }}</td>
                     <td class="py-5 px-4 border-b text-content-2 font-normal">
-                        <div class="bg-primary50 px-3 py-2 flex flex-row items-center justify-center rounded-3xl gap-1 w-fit">
+                        <div
+                            class="bg-primary50 px-3 py-2 flex flex-row items-center justify-center rounded-3xl gap-1 w-fit">
                             <h1 class="text-error500 text-content-2 font-normal">{{ row.approvalStatus }}</h1>
                             <RiCloseLine class="text-error500 w-3 h-3" />
                         </div>
                     </td>
                     <td class="py-5 px-4 border-b text-content-2 font-normal">
                         <div class="flex flex-row gap-3 items-center">
-                            <img :src="icEdit" alt="">
-                            <img :src="icDelete" alt="">
+                            <img :src="icEdit" alt="" @click="toDetail(index)" class="cursor-pointer">
+                            <img :src="icDelete" alt="" @click="openDialog" class="cursor-pointer">
                         </div>
                     </td>
                 </tr>
@@ -39,6 +46,9 @@
         <Pagination />
 
     </div>
+
+    <ApprovalDialog :is-open="isDialogOpen" @close="closeDialog" @confirm="handleDelete" title="Delete Request"
+        message="Are you sure want to delete this request? Please check carefully before delete" ok-button="Delete" />
 </template>
 
 <script setup>
@@ -47,6 +57,29 @@ import icDelete from '@/assets/icons/ic_delete.svg'
 import { RiCloseLine } from '@remixicon/vue';
 import Pagination from '@/components/Pagination.vue';
 import Search from '@/components/SearchInput.vue';
+import { RiFilter3Line } from '@remixicon/vue';
+import { useRouter } from 'vue-router';
+import { ref } from 'vue';
+import ApprovalDialog from './ApprovalDialog.vue';
+
+const router = useRouter()
+
+const isDialogOpen = ref(false)
+const openDialog = () => {
+    isDialogOpen.value = true
+}
+const handleDelete = () => {
+    console.log('delete');
+    
+}
+
+const closeDialog = () => {
+    isDialogOpen.value = false
+}
+
+const toDetail = (id) => {
+    router.push(`/approval/${id}`)
+}
 
 const tableData = [
     {

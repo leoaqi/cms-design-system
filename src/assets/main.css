@@ -19,3 +19,23 @@
 .border-select {
   @apply px-4 py-3 border border-gray-300 rounded-lg w-full input-border text-textScondary
 }
+
+.horizontal-divider{
+  @apply w-full h-[1px] bg-natural200 my-3
+}
+
+.vertical-divider{
+  @apply w-[1px] bg-natural200 mx-3
+}
+
+.card-detail {
+  @apply w-full bg-white rounded-xl border border-natural100 my-5 py-4 
+}
+
+.subtitle{
+  @apply text-content-2 font-normal text-textScondary
+}
+
+.value-title{
+  @apply text-content-2 font-medium text-textPrimary
+}

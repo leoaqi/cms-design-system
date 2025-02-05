@@ -172,7 +172,7 @@
                 <!-- Top User -->
                 <div class=" bg-white rounded-xl border border-natural200 py-4 px-4">
                     <h1 class="text-body-2 font-medium text-textPrimary">Top User</h1>
-                    
+                    <DoughnutGraph/>
                     <div class="flex flex-row justify-between">
                         <h1 class="text-content">Income</h1>
                         <h1 class="text-content-2 text-success500">Rp 62.500.000</h1>
@@ -182,7 +182,8 @@
                         <h1 class="text-content">Outcome</h1>
                         <h1 class="text-content-2 text-success500">Rp 62.500.000</h1>
                     </div>
-                    <h1 class="text-body-3 font-medium text-primary500 hover:underline hover:cursor-pointer mt-4">Show More
+                    <h1 class="text-body-3 font-medium text-primary500 hover:underline hover:cursor-pointer mt-4">Show
+                        More
                     </h1>
                 </div>
                 <!-- End Top User -->
@@ -211,6 +212,8 @@ import icProfile4 from '@/Assets/icons/ic_profile_4.png';
 import icProfile5 from '@/Assets/icons/ic_profile_5.png';
 import icArrowRight from '@/Assets/icons/ic_arrow_right.png';
 import icArrowRightUp from '@/Assets/icons/ic_arrow_right_up.png';
+import DoughnutGraph from './DoughnutGraph.vue';
+
 
 const formatCurrency = (value) => {
     return new Intl.NumberFormat('id-Id', {

@@ -1,7 +1,7 @@
 <template>
     <div class="flex flex-row justify-between items-center">
         <h1 class="font-medium text-body">Role Management</h1>
-        <ButtonAdd>
+        <ButtonAdd @click="toAddRole">
             <h1 class="text-content-2 font-medium">+ Add New Role</h1>
         </ButtonAdd>
     </div>
@@ -36,7 +36,7 @@
                     </td>
                     <td class="py-5 px-4 border-b text-content-2 font-normal">
                         <div class="flex flex-row gap-3 items-center">
-                            <img :src="icEdit" alt="">
+                            <img :src="icEdit" alt="" @click="toDetailRoute(index)" class="cursor-pointer">
                             <img :src="icDelete" alt="">
                         </div>
                     </td>
@@ -55,6 +55,18 @@ import Pagination from '@/components/Pagination.vue';
 import Search from '@/components/SearchInput.vue';
 import ButtonForm from '@/components/ButtonForm.vue';
 import ButtonAdd from '@/components/buttons/ButtonAdd.vue';
+import { useRouter } from 'vue-router';
+
+const router = useRouter()
+
+const toAddRole = () => {
+    router.push('/role-management/add')
+}
+
+const toDetailRoute = (id) => {
+    router.push(`/role-management/${id}`)
+}
+
 const tableData = [
     {
         "roleName": "Head of Branch",

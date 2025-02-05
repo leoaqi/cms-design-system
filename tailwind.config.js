@@ -18,6 +18,8 @@ export default {
         }],
         'body-3': ['16px', {
         }],
+        'caption': ['10px', {
+        },],
         'content': ['14px', {
 
         },],

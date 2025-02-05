@@ -14,6 +14,9 @@ import AddBranch from '@/views/branch/AddBranch.vue';
 import DetailBranch from '@/views/branch/DetailBranch.vue';
 import AddUser from '@/views/user_management/AddUser.vue';
 import DetailUser from '@/views/user_management/DetailUser.vue';
+import AddRole from '@/views/role_management/AddRole.vue';
+import DetailRole from '@/views/role_management/DetailRole.vue';
+import DetailApproval from '@/views/approval/DetailApproval.vue';
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
@@ -92,22 +95,50 @@ const router = createRouter({
                         {
                             path: ':id',
                             name: 'Detail User',
-                            component: DetailUser,
+                            component: DetailRole,
                             meta: { breadcrumb: 'Detail User' },
                         },
                     ]
                 },
                 {
                     path: 'role-management',
-                    name: 'Role Management',
-                    component: RoleManagementView,
-                    meta: { breadcrumb: 'Role Management' }
+                    meta: { breadcrumb: 'Role Management' },
+                    children: [
+                        {
+                            path: '',
+                            name: 'Role Management',
+                            component: RoleManagementView,
+                        },
+                        {
+                            path: 'add',
+                            name: 'Add New Role',
+                            component: AddRole,
+                            meta: { breadcrumb: 'Add New Role' },
+                        },
+                        {
+                            path: ':id',
+                            name: 'Detail Role',
+                            component: DetailRole,
+                            meta: { breadcrumb: 'Detail Role' },
+                        },
+                    ]
                 },
                 {
                     path: 'approval',
-                    name: 'Approval',
-                    component: ApprovalView,
-                    meta: { breadcrumb: 'Approval' }
+                    meta: { breadcrumb: 'Approval' },
+                    children: [
+                        {
+                            path: '',
+                            name: 'Approval',
+                            component: ApprovalView,
+                        },
+                        {
+                            path: ':id',
+                            name: 'Detail Approval',
+                            component: DetailApproval,
+                            meta: { breadcrumb: 'Detail Approval' },
+                        },
+                    ]
                 },
                 {
                     path: 'report',
