@@ -59,11 +59,11 @@
 
 <script setup>
 import Button from '@/components/Button.vue';
-import logoAqi from '@/Assets/images/logoaqi.png';
+import logoAqi from '@/assets/images/logoaqi.png';
 import { RiEyeFill, RiEyeOffFill } from '@remixicon/vue';
 import { ref, computed } from 'vue';
 import { useRouter } from 'vue-router';
-import captcha from '@/Assets/images/captcha.png'
+import captcha from '@/assets/images/captcha.png'
 
 const router = useRouter()
 const email = ref('')

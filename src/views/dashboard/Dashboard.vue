@@ -195,23 +195,23 @@
 
 <script setup>
 import { ref } from 'vue';
-import wallet from '@/Assets/icons/wallet.png';
-import creditCard from '@/Assets/icons/credit_card.png';
-import icUser from '@/Assets/icons/user.png';
-import icApplePay from '@/Assets/icons/ic_apple_pay.png';
-import icBca from '@/Assets/icons/ic_bca.png';
-import icJago from '@/Assets/icons/ic_jago.png';
-import icMasterCard from '@/Assets/icons/ic_master_card.png';
-import icPaypal from '@/Assets/icons/ic_paypal.png';
-import icStrip from '@/Assets/icons/ic_strip.png';
-import icVisa from '@/Assets/icons/ic_visa.png';
-import icProfile1 from '@/Assets/icons/ic_profile_1.png';
-import icProfile2 from '@/Assets/icons/ic_profile_2.png';
-import icProfile3 from '@/Assets/icons/ic_profile_3.png';
-import icProfile4 from '@/Assets/icons/ic_profile_4.png';
-import icProfile5 from '@/Assets/icons/ic_profile_5.png';
-import icArrowRight from '@/Assets/icons/ic_arrow_right.png';
-import icArrowRightUp from '@/Assets/icons/ic_arrow_right_up.png';
+import wallet from '@/assets/icons/wallet.png';
+import creditCard from '@/assets/icons/credit_card.png';
+import icUser from '@/assets/icons/user.png';
+import icApplePay from '@/assets/icons/ic_apple_pay.png';
+import icBca from '@/assets/icons/ic_bca.png';
+import icJago from '@/assets/icons/ic_jago.png';
+import icMasterCard from '@/assets/icons/ic_master_card.png';
+import icPaypal from '@/assets/icons/ic_paypal.png';
+import icStrip from '@/assets/icons/ic_strip.png';
+import icVisa from '@/assets/icons/ic_visa.png';
+import icProfile1 from '@/assets/icons/ic_profile_1.png';
+import icProfile2 from '@/assets/icons/ic_profile_2.png';
+import icProfile3 from '@/assets/icons/ic_profile_3.png';
+import icProfile4 from '@/assets/icons/ic_profile_4.png';
+import icProfile5 from '@/assets/icons/ic_profile_5.png';
+import icArrowRight from '@/assets/icons/ic_arrow_right.png';
+import icArrowRightUp from '@/assets/icons/ic_arrow_right_up.png';
 import DoughnutGraph from './DoughnutGraph.vue';
 
 

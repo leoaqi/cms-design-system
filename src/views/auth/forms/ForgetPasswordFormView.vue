@@ -47,7 +47,7 @@ import { ref } from 'vue';
 import { RouterLink } from 'vue-router';
 import { useRouter } from 'vue-router';
 import Button from '@/components/Button.vue';
-import logoAqi from '@/Assets/images/logoaqi.png';
+import logoAqi from '@/assets/images/logoaqi.png';
 
 const router = useRouter()
 const email = ref('')

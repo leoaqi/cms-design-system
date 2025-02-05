@@ -97,7 +97,7 @@
 import { ref, computed } from 'vue';
 import { RiEyeFill, RiEyeOffFill } from '@remixicon/vue';
 import Button from '@/components/Button.vue';
-import logoAqi from '@/Assets/images/logoaqi.png';
+import logoAqi from '@/assets/images/logoaqi.png';
 import { useRouter } from 'vue-router';
 
 const router = useRouter()

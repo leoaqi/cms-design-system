@@ -26,7 +26,7 @@
 </template>
 
 <script setup>
-import logoaqi from '@/Assets/images/logoaqi.png';
+import logoaqi from '@/assets/images/logoaqi.png';
 import { RouterLink, useRoute } from 'vue-router';
 import { computed, watch } from 'vue';
 
