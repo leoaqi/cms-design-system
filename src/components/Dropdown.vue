@@ -73,7 +73,7 @@ onUnmounted(() => {
       @click="toggleDropdown"
       class="w-full px-4 py-3 text-left bg-white rounded-lg shadow-sm input-border"
     >
-      <span class="block text-gray-700">
+      <span class="block text-textScondary">
         {{ selectedOption ? selectedOption.label : placeholder }}
       </span>
       <span 
