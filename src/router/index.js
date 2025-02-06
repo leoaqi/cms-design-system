@@ -151,17 +151,17 @@ const router = createRouter({
         },
         {
             path: '/login',
-            name: 'login',
+            name: 'Login',
             component: AuthView
         },
         {
             path: '/reset-password',
-            name: 'resetpassword',
+            name: 'Reset Password',
             component: AuthView
         },
         {
             path: '/forget-password',
-            name: 'forgetpassword',
+            name: 'Forget Password',
             component: AuthView
         },
     ]
