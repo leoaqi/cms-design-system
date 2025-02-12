@@ -64,10 +64,7 @@
     <!-- List Branch -->
     <div class="w-full bg-white rounded-xl border border-natural100 my-5 py-4 ">
         <div class="flex flex-row justify-between items-center px-6 pb-4">
-            <h1 class=" text-body-2 font-medium text-textPrimary">List Branch</h1>
-            <ButtonAdd @click="toAddForm">
-                <h1 class="text-content-2 font-medium">+ Add New Branch</h1>
-            </ButtonAdd>
+            <h1 class=" text-body-2 font-medium text-textPrimary">List User</h1>
         </div>
         <div class="w-full h-[1px] bg-natural200 mb-6"></div>
         <div class="px-6">
@@ -138,6 +135,7 @@ import SearchInput from '@/components/SearchInput.vue';
 import Pagination from '@/components/Pagination.vue';
 import icProfile1 from '@/assets/icons/ic_profile_1.png';
 import { useRouter } from 'vue-router';
+import {RiCloseLine} from '@remixicon/vue'
 
 const router = useRouter()
 

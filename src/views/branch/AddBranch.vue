@@ -9,34 +9,34 @@
             <div class="grid grid-cols-2 gap-4">
                 <div class="pt-3">
                     <h1 class="text-content text-textPrimary pb-2">Departement</h1>
-                    <Dropdown v-model="selectedValue" :options="options" placeholder="Select departement"
-                        header="Departement" id="dept" />
+                    <Dropdown v-model="selectedValue" :options="branchStore.departments" placeholder="Select department"
+                        header="Department" id="dept" labelKey="departmentName" valueKey="departmentName" />
                 </div>
                 <div class="pt-3">
                     <h1 class="text-content text-textPrimary pb-2">Branch Name</h1>
-                    <TextField placeholder="Input branch name" />
+                    <TextField hint="Input branch name" v-model="branchName" />
                 </div>
                 <div class="pt-1">
                     <h1 class="text-content text-textPrimary pb-2">Address</h1>
-                    <TextField placeholder="Input Address" />
+                    <TextField hint="Input Address" v-model="address" />
                 </div>
                 <div class="pt-1">
                     <h1 class="text-content text-textPrimary pb-2">Head of Branch</h1>
-                    <Dropdown v-model="selectedHeadOfBranchValue" :options="options" placeholder="Select head of branch"
-                        header="Head of branch" id="branch" />
+                    <Dropdown v-model="selectedHeadOfBranchValue" :options="branchStore.headOfBranchs" placeholder="Select head of branch"
+                        header="Head of branch" id="branch" valueKey="id" labelKey="name" />
                 </div>
             </div>
             <div class="pb-3 pt-6">
                 <h1 class="text-content text-textPrimary pb-2">Branch Description</h1>
                 <div class="">
-                    <TextArea placeholder="Input departement description" />
+                    <TextArea hint="Input departement description" v-model="description" />
                 </div>
             </div>
         </div>
         <div class="w-full h-[1px] bg-natural200 my-3"></div>
         <div class="flex justify-center py-4 px-6 gap-4 mx-auto max-w-screen-xl">
             <ButtonForm title="Cancel" type="outline-border" class="w-[232px] " @click="back" />
-            <ButtonForm title="Add New Branch" class="w-[254px]" @click="back" />
+            <ButtonForm title="Add New Branch" class="w-[254px]" @click="handleSubmit" />
         </div>
     </div>
 </template>
@@ -47,32 +47,40 @@ import TextArea from '@/components/TextArea.vue';
 import ButtonForm from '@/components/ButtonForm.vue';
 import Dropdown from '@/components/Dropdown.vue';
 import { useRouter } from 'vue-router';
-import { ref } from 'vue';
+import { onActivated, ref } from 'vue';
+import { useBranchStore } from '@/store/branchStore';
 
 const router = useRouter()
 
 const selectedValue = ref(null)
 const selectedHeadOfBranchValue = ref(null)
+const branchName = ref('')
+const address = ref('')
+const description = ref('')
 
-const options = [
-    { id: 1, label: 'Option 1', status: '1' },
-    { id: 2, label: 'Option 2', status: '2' },
-    { id: 3, label: 'Option 3', status: '3' },
-    { id: 4, label: 'Option 4', status: '4' }
-]
+const branchStore = useBranchStore()
+
+const handleSubmit = async()=>{
+    await branchStore.addBranch({
+        branchName: branchName.value,
+        address: address.value,
+        description: description.value,
+        relatedDepartment: selectedHeadOfBranchValue.value.name
+    })
+
+    back()
+}
 
 const back = () => {
     router.back()
 }
 
-const departments = ref([
-    { id: 1, name: 'Human Resources' },
-    { id: 2, name: 'Information Technology' },
-    { id: 3, name: 'Finance' },
-    { id: 4, name: 'Marketing' },
-    { id: 5, name: 'Operations' }
-])
-
-const selectedDepartment = ref(null)
-const headOfBranch = ref(null)
+onActivated(() => {
+    selectedValue.value = null
+    selectedHeadOfBranchValue.value = null
+    branchName.value = ''
+    address.value = ''
+    description.value = ''
+    branchStore.init()
+})
 </script>

@@ -8,18 +8,26 @@
         <!-- Navigation Items -->
         <nav class="pt-2 px-4">
             <template v-for="item in menuItems" :key="item.name">
-                <RouterLink :to="item.slug" :class="[
-                    'flex items-center gap-3 text-[12px] pl-4 py-3 text-gray-700 my-4',
-                    {
-                        'bg-active-menu text-white rounded-lg': isActive(item.slug),
-                        'hover:bg-red-50 hover:text-red-600 hover:rounded-lg transition-colors': !isActive(item.slug)
-                    }
-                ]">
-                    <span class="w-5 h-5">
-                        <component :is="item.icon" />
-                    </span>
-                    {{ item.name }}
-                </RouterLink>
+                <div class="relative">
+                    <div class="absolute inset-0" :class="[
+                        { 'w-full h-11 z-0 bg-primary100 rounded-lg': isActive(item.slug) },
+                        { 'hidden z-0': !isActive(item.slug) }
+                    ]"></div>
+
+                    <RouterLink :to="item.slug" :class="[
+                        'relative flex items-center gap-3 z-10 text-[12px] pl-4 py-3 text-gray-700 my-4 mr-1',
+                        {
+                            'bg-active-menu text-white z-10 rounded-lg': isActive(item.slug),
+                            'hover:bg-red-50 hover:text-red-600 hover:rounded-lg transition-colors': !isActive(item.slug)
+                        }
+                    ]">
+                        <span class="w-5 h-5">
+                            <component :is="item.icon" />
+                        </span>
+                        {{ item.name }}
+                    </RouterLink>
+                    
+                </div>
             </template>
         </nav>
     </div>

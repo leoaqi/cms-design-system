@@ -11,8 +11,10 @@
       <!-- Content -->
       <div class="flex-1 bg-bg-foreground overflow-y-auto">
         <main class="m-8 ">
-          <!-- <RouterView /> -->
-          <router-view>
+          <router-view v-slot="{ Component }">
+            <keep-alive>
+              <component :is="Component" />
+            </keep-alive>
           </router-view>
         </main>
       </div>

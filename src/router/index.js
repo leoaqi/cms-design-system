@@ -95,7 +95,7 @@ const router = createRouter({
                         {
                             path: ':id',
                             name: 'Detail User',
-                            component: DetailRole,
+                            component: DetailUser,
                             meta: { breadcrumb: 'Detail User' },
                         },
                     ]

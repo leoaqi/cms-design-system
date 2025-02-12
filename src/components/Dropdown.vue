@@ -17,28 +17,51 @@ const props = defineProps({
   },
   options: {
     type: Array,
-    default: () => [
-      { id: 1, label: 'Option 1' },
-      { id: 2, label: 'Option 2' },
-      { id: 3, label: 'Option 3' },
-      { id: 4, label: 'Option 4' }
-    ]
+    default: () => []
   },
   placeholder: {
     type: String,
     default: 'Select Option'
+  },
+  labelKey: {
+    type: String,
+    default: 'label'
+  },
+  valueKey: {
+    type: String,
+    default: 'id'
+  },
+  error: {
+    type: Boolean,
+    default: false
+  },
+  errorMessage: {
+    type: String,
+    default: ''
   }
 })
 
-const emit = defineEmits(['update:modelValue'])
+const emit = defineEmits(['update:modelValue', 'change'])
 
 const dropdownRef = ref(null)
 const { activeDropdown, setActiveDropdown, closeAll } = useDropdown()
 
 const isOpen = computed(() => activeDropdown.value === props.id)
+
+const getOptionLabel = (option) => {
+  if (typeof option === 'object') {
+    // Handle nested objects using dot notation
+    return props.labelKey.split('.').reduce((obj, key) => obj?.[key], option) || ''
+  }
+  return option
+}
+
 const selectedOption = computed({
   get: () => props.modelValue,
-  set: (value) => emit('update:modelValue', value)
+  set: (value) => {
+    emit('update:modelValue', value)
+    emit('change', value)
+  }
 })
 
 const toggleDropdown = (event) => {
@@ -59,10 +82,12 @@ const handleClickOutside = (event) => {
 
 onMounted(() => {
   document.addEventListener('click', handleClickOutside)
+  document.addEventListener('keydown', closeAll)
 })
 
 onUnmounted(() => {
   document.removeEventListener('click', handleClickOutside)
+  document.removeEventListener('keydown', closeAll)
 })
 </script>
 
@@ -71,10 +96,14 @@ onUnmounted(() => {
     <button
       type="button"
       @click="toggleDropdown"
-      class="w-full px-4 py-3 text-left bg-white rounded-lg shadow-sm input-border"
+      class="w-full px-4 py-3 text-left bg-white rounded-lg shadow-sm"
+      :class="{
+        'input-border': !error,
+        'error-border': error
+      }"
     >
       <span class="block text-textScondary">
-        {{ selectedOption ? selectedOption.label : placeholder }}
+        {{ selectedOption ? getOptionLabel(selectedOption) : placeholder }}
       </span>
       <span 
         class="absolute inset-y-0 right-0 flex items-center pr-4 pointer-events-none"
@@ -99,17 +128,21 @@ onUnmounted(() => {
       class="absolute z-10 w-full mt-2 bg-white rounded-lg shadow-lg"
     >
       <div class="py-2">
-        <h3 class="px-4 py-2  text-lg font-medium">{{ header }}</h3>
+        <h3 class="px-4 py-2 text-lg font-medium">{{ header }}</h3>
         <div
           v-for="option in options"
-          :key="option.id"
+          :key="option[valueKey]"
           @click="selectOption(option)"
           class="px-4 py-3 mx-4 rounded-lg flex items-center space-x-3 text-textScondary hover:bg-primary50 cursor-pointer"
-          :class="{'bg-primary500 text-white': option.id === selectedOption?.id}"
+          :class="{'bg-primary500 text-white': option[valueKey] === selectedOption?.[valueKey]}"
         >
-          <span class="text-content ">{{ option.label }}</span>
+          <span class="text-content">{{ getOptionLabel(option) }}</span>
         </div>
       </div>
     </div>
+    
+    <span v-if="error && errorMessage" class="text-red-500 text-sm mt-1 block">
+      {{ errorMessage }}
+    </span>
   </div>
 </template>
