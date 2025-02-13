@@ -1,5 +1,5 @@
 <template>
-    <div class="w-full px-36 mx-auto bg-base-white">
+    <div class="w-full px-4 md:px-6 lg:px-4 xl:px-26 2xl:px-10 mx-auto bg-base-white">
         <img :src="logoAqi" alt="logo aqi" class="w-[158px] h-[40px] object-cover mt-10 mb-20 ">
         <div v-if="!isSuccess">
             <h2 class="text-heading-3 font-medium">Create New Password?</h2>

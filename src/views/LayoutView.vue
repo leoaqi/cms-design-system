@@ -1,7 +1,7 @@
 <template>
-  <div class="flex flex-row h-screen ">
+  <div class="flex flex-col lg:flex-row h-screen ">
     <!-- Sidebar -->
-    <Sidebar />
+    <Sidebar class="hidden lg:flex flex-col" />
 
     <!-- Main Content Area -->
     <div class="flex-1 flex flex-col overflow-y-auto [&::-webkit-scrollbar]:hidden">
@@ -19,6 +19,7 @@
         </main>
       </div>
     </div>
+    <Sidebar class="flex flex-row lg:hidden" />
   </div>
 </template>
 

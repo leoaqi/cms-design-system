@@ -1,5 +1,5 @@
 <template>
-    <div class="w-full px-36 mx-auto bg-base-white">
+    <div class="w-full px-3 md:px-6 lg:px-26 2xl:px-10 mx-auto bg-base-white">
         <img :src="logoAqi" alt="logo aqi" class="w-[158px] h-[40px] object-cover mt-10 mb-20">
         <div v-if="!isSuccess">
             <div>

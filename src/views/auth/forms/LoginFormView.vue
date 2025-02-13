@@ -1,5 +1,5 @@
 <template>
-    <div class="w-full px-36 mx-auto bg-base-white">
+    <div class="w-full px-6 lg:px-10 xl:px-26 2xl:px-10 xl:mx-auto bg-base-white">
         <img :src="logoAqi" alt="logo aqi" class="w-[158px] h-[40px] object-cover mt-10 mb-20">
         <h2 class="text-heading-3 font-medium mb-2">Sign In to Your Account</h2>
         <h2 class="text-content font-normal text-textScondary">Enter your registered email & password to sign in</h2>

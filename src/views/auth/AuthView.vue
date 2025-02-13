@@ -1,13 +1,16 @@
 <template>
-    <div class="bg-[#ffffff] grid grid-cols-2 py-20 ">
-        <LoginFormView v-if="isLogin"/>
-        <ResetPasswordFormView v-if="isReset"/>
-        <ForgetPasswordFormView v-if="isForget"/>
-        <div class="relative w-full">
-            <img :src="ilustration" alt="logo aqi" class="w-[680px] h-[900px] object-cover mb-20 rounded-[30px]">
-            <div class="absolute inset-x-0 bottom-32 p-4 w-[560px] px-14">
-                <h1 class=" w-50 pt-100 text-heading-3 font-semibold text-base-white">Welcome Back to Content
-                    Management System 👋</h1>
+    <div class="bg-[#ffffff] min-h-screen flex flex-col lg:grid lg:grid-cols-2 p-4 md:p-8 lg:py-20 xl:px-[200px]">
+        <div class="w-full flex justify-center items-center">
+            <LoginFormView v-if="isLogin" />
+            <ResetPasswordFormView v-if="isReset" />
+            <ForgetPasswordFormView v-if="isForget" />
+        </div>
+        <div class="relative w-full hidden lg:flex lg:justify-start">
+            <img :src="ilustration" alt="logo aqi" class="w-[680px] h-[900px] object-cover rounded-[30px]">
+            <div class="absolute inset-x-0 xl:left-[0px]  xl:w-[600px] xl:justify-center xl:mx-1 bottom-[40px] flex justify-start">
+                <h1 class="text-heading-3 font-semibold text-white px-14">
+                    Welcome Back to Content Management System 👋
+                </h1>
             </div>
         </div>
     </div>

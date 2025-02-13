@@ -1,32 +1,46 @@
 <template>
-    <div class="w-[264px] h-screen bg-white shadow-lg">
+    <div :class="[isHovered ? 'w-screen lg:w-[264px] '  : 'w-screen lg:w-fit']" class="h-[70px] lg:h-screen bg-white shadow-lg transition-all duration-75"
+        @mouseenter="isHovered = true" @mouseleave="isHovered = false">
         <!-- Logo -->
-        <div class="flex items-center justify-center w-full h-[48px] py-10">
-            <img :src="logoaqi" alt="logoaqi" class="w-[126px] h-[32px] object-fill" />
-        </div>
+        <div class="hidden  lg:flex items-center justify-center w-full h-[48px] py-10">
+            <img :src="[!isHovered ? logo : logoaqi]" alt="logoaqi" class="object-fill" :class="[
+                { 'w-[126px] h-[32px]': isHovered },
+                { 'w-[32px] h-[32px]': !isHovered },
+            ]" />
+        </div>  
 
         <!-- Navigation Items -->
-        <nav class="pt-2 px-4">
+        <nav class="pt-2 px-4 flex flex-row justify-between lg:flex-col w-full">
             <template v-for="item in menuItems" :key="item.name">
                 <div class="relative">
-                    <div class="absolute inset-0" :class="[
-                        { 'w-full h-11 z-0 bg-primary100 rounded-lg': isActive(item.slug) },
+                    <div class="absolute md:inset-y-1 lg:inset-y-1" :class="[
+                        { 'w-full h-[42px] z-0 bg-primary100 rounded-lg hidden lg:inline': isActive(item.slug) && isHovered },
                         { 'hidden z-0': !isActive(item.slug) }
                     ]"></div>
 
                     <RouterLink :to="item.slug" :class="[
-                        'relative flex items-center gap-3 z-10 text-[12px] pl-4 py-3 text-gray-700 my-4 mr-1',
+                        'relative flex items-center gap-1 z-10 text-[12px] pl-4 py-3 text-gray-700 my-1 mr-1 pr-3',
+                        {'my-[5px]': !isHovered},
                         {
                             'bg-active-menu text-white z-10 rounded-lg': isActive(item.slug),
                             'hover:bg-red-50 hover:text-red-600 hover:rounded-lg transition-colors': !isActive(item.slug)
                         }
                     ]">
-                        <span class="w-5 h-5">
-                            <component :is="item.icon" />
+                        <span >
+                            <component :is="item.icon"  :class="[
+                            {'w-5 h-4': isHovered},
+                            {'w-5 h-4': !isHovered},
+                            'object-cover'
+                        ]"/>
                         </span>
-                        {{ item.name }}
+                        <span :class="[
+                            'transition-all duration-300 hidden',
+                            isHovered ? 'opacity-100 w-auto lg:inline' : 'hidden md:hidden'
+                        ]">
+                            {{ item.name }}
+                        </span>
                     </RouterLink>
-                    
+
                 </div>
             </template>
         </nav>
@@ -35,10 +49,12 @@
 
 <script setup>
 import logoaqi from '@/assets/images/logoaqi.png';
+import logo from '@/assets/images/logo.png';
 import { RouterLink, useRoute } from 'vue-router';
-import { computed, watch } from 'vue';
+import { ref } from 'vue';
 
 const route = useRoute()
+const isHovered = ref(false);
 
 const isActive = (slug) => {
     const currentPath = route.path;
