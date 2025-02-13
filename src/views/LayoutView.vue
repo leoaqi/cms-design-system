@@ -10,7 +10,7 @@
 
       <!-- Content -->
       <div class="flex-1 bg-bg-foreground overflow-y-auto">
-        <main class="m-8 ">
+        <main class="m-4 lg:m-8 ">
           <router-view v-slot="{ Component }">
             <keep-alive>
               <component :is="Component" />
@@ -19,7 +19,7 @@
         </main>
       </div>
     </div>
-    <Sidebar class="flex flex-row lg:hidden" />
+    <Sidebar class="flex flex-row fixed bottom-0 lg:hidden" />
   </div>
 </template>
 

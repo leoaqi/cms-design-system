@@ -1,39 +1,39 @@
 <template>
     <h1 class="font-medium text-body">Dashboard</h1>
-    <div class="grid grid-cols-3 gap-8 py-4">
-        <div class="w-full bg-white rounded-xl border border-natural200 px-6 py-4">
-            <div class="bg-error50 w-[30px] h-[30px] rounded-lg flex items-center justify-center mb-4">
-                <div class="w-[20px] h-[20px]">
-                    <img :src="wallet" alt="wallet" class="object-cover">
-                </div>
-            </div>
+    <div class="flex flex-wrap md:grid grid-cols-3 gap-8 py-4">
+        <div class="w-full bg-white rounded-xl border border-natural200 px-4 lg:px-6 py-4">
             <div class="flex flex-row justify-between">
-                <h5 class="text-heading-5 font-medium">{{ formatCurrency(dashboardStore.totalCash) }}</h5>
+                <div class="bg-error50 w-[30px] h-[30px] rounded-lg flex items-center justify-center mb-4">
+                    <div class="w-[20px] h-[20px]">
+                        <img :src="wallet" alt="wallet" class="object-cover">
+                    </div>
+                </div>
                 <div class="py-1 px-3 flex rounded-full h-[24px] bg-success50 items-center">
                     <h1 class="text-[10px] font-normal  text-success500">+20%</h1>
                 </div>
             </div>
+            <h5 class="text-heading-5 font-medium">{{ formatCurrency(dashboardStore.totalCash) }}</h5>
             <h1 class="text-content font-normal text-textScondary">Total Cash</h1>
             <div class="w-full h-[1px] bg-natural200 my-4"></div>
             <h1 class="text-body-3 font-medium text-primary500 hover:underline hover:cursor-pointer">Show More</h1>
         </div>
-        <div class="w-full bg-white rounded-xl border border-natural200 px-6 py-4">
-            <div class="relative bg-warning100 w-[30px] h-[30px] rounded-lg flex items-center justify-center mb-4">
-                <div class="absolute w-[20px] h-[20px] inset-y-[7px]">
-                    <img :src="creditCard" alt="creditCard" class="object-cover">
-                </div>
-            </div>
+        <div class="w-full bg-white rounded-xl border border-natural200 px-4 lg:px-6 py-4">
             <div class="flex flex-row justify-between">
-                <h5 class="text-heading-5 font-medium">{{ formatCurrency(dashboardStore.totalFinance) }}</h5>
+                <div class="relative bg-warning100 w-[30px] h-[30px] rounded-lg flex items-center justify-center mb-4">
+                    <div class="absolute w-[20px] h-[20px] inset-y-[7px]">
+                        <img :src="creditCard" alt="creditCard" class="object-cover">
+                    </div>
+                </div>
                 <div class="py-1 px-3 flex rounded-full h-[24px] bg-error50 items-center">
                     <h1 class="text-[10px] font-normal  text-error500">-20%</h1>
                 </div>
             </div>
+            <h5 class="text-heading-5 font-medium">{{ formatCurrency(dashboardStore.totalFinance) }}</h5>
             <h1 class="text-content font-normal text-textScondary">Total Finance</h1>
             <div class="w-full h-[1px] bg-natural200 my-4"></div>
             <h1 class="text-body-3 font-medium text-primary500 hover:underline hover:cursor-pointer">Show More</h1>
         </div>
-        <div class="w-full bg-white rounded-xl border border-natural200 px-6 py-4">
+        <div class="w-full bg-white rounded-xl border border-natural200 px-4 lg:px-6 py-4">
             <div class="bg-info100 w-[30px] h-[30px] rounded-lg flex items-center justify-center mb-4">
                 <div class="w-[20px] h-[20px]">
                     <img :src="icUser" alt="icUser" class="object-cover">
@@ -47,7 +47,7 @@
             <h1 class="text-body-3 font-medium text-primary500 hover:underline hover:cursor-pointer">Show More</h1>
         </div>
     </div>
-    <div class="grid grid-cols-3 gap-8">
+    <div class="flex flex-wrap lg:grid grid-cols-3 gap-8">
         <!-- Last Deposit -->
         <div class=" w-full min-h-screen bg-white rounded-md border border-natural200 p-6">
             <div class="flex justify-between items-center mb-7">
@@ -105,31 +105,27 @@
                         </div>
 
                         <!-- Bars container -->
-                        <div class="relative h-full flex items-end justify-between px-4">
+                        <div class="relative h-full flex items-end justify-between px-1 lg:px-4">
                             <template v-for="(values) in dashboardStore.chartData">
                                 <div class="flex flex-col items-center group">
                                     <!-- Stacked bars container -->
-                                    <div class="relative w-[32px] flex flex-col-reverse">
+                                    <div class="relative w-4 lg:w-[32px] flex flex-col-reverse">
                                         <div :style="{ height: `${values[0] + 100}px` }"
-                                            class="absolute w-[32px] bg-primary300 transition-all duration-300 rounded-t-lg">
+                                            class="absolute w-4 lg:w-[32px] bg-primary300 transition-all duration-300 rounded-t-sm lg:rounded-t-lg">
                                         </div>
                                         <div :style="{ height: `${values[1] + 80}px` }"
-                                            class="absolute w-[32px]  bg-primary500 transition-all duration-300 rounded-t-lg">
+                                            class="absolute w-4 lg:w-[32px]  bg-primary500 transition-all duration-300 rounded-t-sm lg:rounded-t-lg">
                                         </div>
                                         <div :style="{ height: `${values[2] + 50}px` }"
-                                            class="absolute w-[32px]  bg-primary700 transition-all duration-300 rounded-t-lg">
+                                            class="absolute w-4 lg:w-[32px]  bg-primary700 transition-all duration-300 rounded-t-sm lg:rounded-t-lg">
                                         </div>
                                     </div>
                                 </div>
                             </template>
-                            <div class="absolute inset-y-6 inset-0 h-full flex items-end justify-between px-4 ">
+                            <div class="absolute inset-y-5 lg:inset-y-6 inset-0 h-full flex gap-1 items-end justify-between px-1 lg:px-4 ">
                                 <template v-for="(values, month) in dashboardStore.chartData" :key="month">
                                     <div class="flex flex-col items-center group">
-                                        <!-- Stacked bars container -->
-
-
-                                        <!-- Month label -->
-                                        <div class="text-center mt-4 text-gray-600 text-sm">
+                                        <div class="text-center mt-4 text-gray-600 text-caption lg:text-sm">
                                             {{ month }}
                                         </div>
                                     </div>
@@ -141,9 +137,9 @@
             </div>
             <!-- End All Time Balance -->
 
-            <div class="grid grid-cols-2 gap-8 h-full">
+            <div class="flex flex-wrap md:grid grid-cols-2 gap-8 h-full mb-20 lg:mb-0">
                 <!-- Top Spending -->
-                <div class=" bg-white rounded-xl border border-natural200 py-4 px-4">
+                <div class="w-full bg-white rounded-xl border border-natural200 py-4 px-4">
                     <h1 class="text-body-2 font-medium text-textPrimary">Top Spending</h1>
                     <template v-for="(values, index) in dashboardStore.dataTopSpending" :key="values">
                         <div class="flex justify-between items-center mt-4">
@@ -170,7 +166,7 @@
                 <!-- End Top Spending -->
 
                 <!-- Top User -->
-                <div class=" bg-white rounded-xl border border-natural200 py-4 px-4">
+                <div class="w-full bg-white rounded-xl border border-natural200 py-4 px-4">
                     <h1 class="text-body-2 font-medium text-textPrimary">Top User</h1>
                     <DoughnutGraph />
                     <div class="flex flex-row justify-between">

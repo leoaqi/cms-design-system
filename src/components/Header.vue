@@ -1,5 +1,5 @@
 <template>
-  <div class="px-8 py-4 bg-white w-full ml-[2px]">
+  <div class="px-4 lg:px-8 py-4 bg-white w-full ml-[2px]">
     <div class="flex flex-row justify-between items-center">
       <nav class="flex" aria-label="Breadcrumb">
         <ol class="inline-flex items-center space-x-2">

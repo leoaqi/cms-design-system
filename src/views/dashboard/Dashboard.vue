@@ -1,7 +1,7 @@
 <template>
-    <div v-if="!dashboardStore.isLoading">
+    <section v-if="!dashboardStore.isLoading">
         <DashboardComponent />
-    </div>
+    </section>
     <div v-if="dashboardStore.isLoading">
         <div class="flex items-center justify-center min-h-screen">
             <div role="status">
