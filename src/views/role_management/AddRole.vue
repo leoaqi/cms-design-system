@@ -1,6 +1,6 @@
 <template>
     <div class="bg-white rounded-xl max-w-screen-lg mx-auto py-4 border border-natural200">
-        <div class="px-32">
+        <div class="px-4 lg:px-32">
             <div class="text-center">
                 <h1 class="text-body text-textPrimary">Add New Role</h1>
                 <h1 class="text-content text-textScondary pt-3">Add new role and assign role access

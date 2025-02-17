@@ -102,7 +102,7 @@ onUnmounted(() => {
         'error-border': error
       }"
     >
-      <span class="block text-textScondary">
+      <span class="block text-textScondary truncate pr-7">
         {{ selectedOption ? getOptionLabel(selectedOption) : placeholder }}
       </span>
       <span 
@@ -127,7 +127,7 @@ onUnmounted(() => {
       v-show="isOpen"
       class="absolute z-10 w-full mt-2 bg-white rounded-lg shadow-lg"
     >
-      <div class="py-2">
+      <div class="py-2 overflow-scroll max-h-80">
         <h3 class="px-4 py-2 text-lg font-medium">{{ header }}</h3>
         <div
           v-for="option in options"

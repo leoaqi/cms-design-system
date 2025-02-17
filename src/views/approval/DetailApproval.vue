@@ -2,13 +2,13 @@
     <div class="flex flex-row justify-between items-center">
         <h1 class="font-medium text-body">Detail Approval</h1>
         <div class="flex flex-row gap-3">
-            <button class="btn-border-icon" @click="openDialog">
+            <button class="btn-border-icon flex items-center" @click="openDialog">
                 <img :src="icCheckCircle" alt="" class="w-[16px] h-[16px] object-cover text-primary500">
-                <h1 class="text-content-2 font-medium">Approve Request</h1>
+                <h1 class="text-content-2 text-left font-medium">Approve Request</h1>
             </button>
-            <button class="btn-border-icon" @click="openDialogReject">
+            <button class="btn-border-icon flex items-center" @click="openDialogReject">
                 <img :src="icCloseCircle" alt="" class="w-[16px] h-[16px] object-cover">
-                <h1 class="text-content-2 font-medium">Reject Request</h1>
+                <h1 class="text-content-2 text-left font-medium">Reject Request</h1>
             </button>
         </div>
     </div>
@@ -45,9 +45,9 @@
             </div>
         </div>
     </div>
-    <div class="card-detail">
+    <div class="card-detail overflow-scroll w-screen">
         <h1 class="px-6 text-body-2 font-medium text-textPrimary">Approval Information</h1>
-        <div class="horizontal-divider"></div>
+        <div class="horizontal-divider w-full"></div>
         <div class="px-6 py-4">
             <div class="flex items-center justify-between w-full gap-6">
                 <!-- Step 1: Request Created -->

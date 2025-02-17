@@ -7,34 +7,36 @@
     </div>
     <div class="border border-natural200 px-4 py-10 bg-white mt-8 rounded-xl">
         <Search hint="Search by departement name" v-model="searchQuery" @input="onSearch" @search="onSearch" />
-        <table class="min-w-full bg-white border-none">
-            <thead class="bg-primary100 border-none">
-                <tr class="text-primary500">
-                    <th class="py-4 px-4 text-content font-medium">No</th>
-                    <th class="py-4 px-4 text-content font-medium text-left ">Department Name</th>
-                    <th class="py-4 px-4 text-content font-medium text-left">Description</th>
-                    <th class="py-4 px-4 text-content font-medium text-left">Action</th>
-                </tr>
-            </thead>
-            <tbody class="py-4">
-                <tr v-if="filteredDepartements.length == 0">
-                    <td colspan="4" class="py-5 px-4 border-b text-content-2 font-normal text-center">No Data</td>
-                </tr>
-                <tr v-for="(row, index) in paginatedData" :key="index">
-                    <td class="py-5 px-4 border-b text-content-2 font-normal w-9">{{ index + 1 }}</td>
-                    <td class="py-5 px-4 border-b text-content-2 font-normal w-[250px]">{{ row.departmentName }}</td>
-                    <td class="py-5 px-4 border-b text-content-2 font-normal ">
-                        <p class="line-clamp-2 overflow-hidden leading-relaxed text-ellipsis">{{ row.description }}</p>
-                    </td>
-                    <td class="py-5 px-4 border-b text-content-2 font-normal">
-                        <div class="flex flex-row gap-3 items-center">
-                            <img :src="icEdit" alt="" v-on:click="toDetail(index)" class="cursor-pointer">
-                            <img :src="icDelete" alt="" v-on:click="onShowModalDelete(row)" class="cursor-pointer">
-                        </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="overflow-x-auto">
+            <table class="min-w-full bg-white border-none table-auto overflow-scroll w-full">
+                <thead class="bg-primary100 border-none">
+                    <tr class="text-primary500">
+                        <th class="py-4 px-4 text-content font-medium">No</th>
+                        <th class="py-4 px-4 text-content font-medium text-left ">Department Name</th>
+                        <th class="py-4 px-4 text-content font-medium text-left">Description</th>
+                        <th class="py-4 px-4 text-content font-medium text-left">Action</th>
+                    </tr>
+                </thead>
+                <tbody class="py-4">
+                    <tr v-if="filteredDepartements.length == 0">
+                        <td colspan="4" class="py-5 px-4 border-b text-content-2 font-normal text-center">No Data</td>
+                    </tr>
+                    <tr v-for="(row, index) in paginatedData" :key="index">
+                        <td class="py-5 px-4 border-b text-content-2 font-normal w-9">{{ index + 1 }}</td>
+                        <td class="py-5 px-4 border-b text-content-2 font-normal w-[250px]">{{ row.departmentName }}</td>
+                        <td class="py-5 px-4 border-b text-content-2 font-normal ">
+                            <p class="line-clamp-2 overflow-hidden leading-relaxed text-ellipsis">{{ row.description }}</p>
+                        </td>
+                        <td class="py-5 px-4 border-b text-content-2 font-normal">
+                            <div class="flex flex-row gap-3 items-center">
+                                <img :src="icEdit" alt="" v-on:click="toDetail(index)" class="cursor-pointer">
+                                <img :src="icDelete" alt="" v-on:click="onShowModalDelete(row)" class="cursor-pointer">
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
         <Pagination v-model="currentPage" :total="filteredDepartements.length" :page-size="pageSize"
             @page-change="handlePageChange" @page-size-change="handlePageSizeChange" />
     </div>

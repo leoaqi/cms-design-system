@@ -10,7 +10,7 @@
 </template>
 
 <script setup>
-import { defineProps, defineEmits } from 'vue';
+import { defineProps, defineEmits, computed } from 'vue';
 
 defineProps({
     hint: {
@@ -36,4 +36,6 @@ defineProps({
 });
 
 defineEmits(['update:modelValue']);
+
+const maxLines = computed(() => Number(props.maxLine));
 </script>

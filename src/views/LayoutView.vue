@@ -19,7 +19,7 @@
         </main>
       </div>
     </div>
-    <Sidebar class="flex flex-row fixed bottom-0 lg:hidden" />
+    <Sidebar class="flex flex-row bottom-0 lg:hidden" />
   </div>
 </template>
 

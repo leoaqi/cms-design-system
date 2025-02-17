@@ -8,41 +8,43 @@
                 <RiFilter3Line class="w-[16px] h-[16px] text-textScondary" />
             </div>
         </div>
-        <table class="min-w-full bg-white border-none">
-            <thead class="bg-primary100 border-none">
-                <tr class="text-primary500">
-                    <th class="py-4 px-4 text-content font-medium">No</th>
-                    <th class="py-4 px-4 text-content font-medium text-left ">Request title</th>
-                    <th class="py-4 px-4 text-content font-medium text-left">Related to</th>
-                    <th class="py-4 px-4 text-content font-medium text-left">Requested By</th>
-                    <th class="py-4 px-4 text-content font-medium text-left">Datetime</th>
-                    <th class="py-4 px-4 text-content font-medium text-left">Approval Status</th>
-                    <th class="py-4 px-4 text-content font-medium text-left">Action</th>
-                </tr>
-            </thead>
-            <tbody class="py-4">
-                <tr v-for="(row, index) in tableData" :key="index">
-                    <td class="py-5 px-4 border-b text-content-2 font-normal w-9">{{ index + 1 }}</td>
-                    <td class="py-5 px-4 border-b text-content-2 font-normal">{{ row.requestTitle }}</td>
-                    <td class="py-5 px-4 border-b text-content-2 font-normal">{{ row.relatedTo }}</td>
-                    <td class="py-5 px-4 border-b text-content-2 font-normal">{{ row.requestedBy }}</td>
-                    <td class="py-5 px-4 border-b text-content-2 font-normal">{{ row.datetime }}</td>
-                    <td class="py-5 px-4 border-b text-content-2 font-normal">
-                        <div
-                            class="bg-primary50 px-3 py-2 flex flex-row items-center justify-center rounded-3xl gap-1 w-fit">
-                            <h1 class="text-error500 text-content-2 font-normal">{{ row.approvalStatus }}</h1>
-                            <RiCloseLine class="text-error500 w-3 h-3" />
-                        </div>
-                    </td>
-                    <td class="py-5 px-4 border-b text-content-2 font-normal">
-                        <div class="flex flex-row gap-3 items-center">
-                            <img :src="icEdit" alt="" @click="toDetail(index)" class="cursor-pointer">
-                            <img :src="icDelete" alt="" @click="openDialog" class="cursor-pointer">
-                        </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="overflow-x-auto">
+            <table class="min-w-full bg-white border-none table-auto overflow-scroll w-full">
+                <thead class="bg-primary100 border-none">
+                    <tr class="text-primary500">
+                        <th class="py-4 px-4 text-content font-medium">No</th>
+                        <th class="py-4 px-4 text-content font-medium text-left ">Request title</th>
+                        <th class="py-4 px-4 text-content font-medium text-left">Related to</th>
+                        <th class="py-4 px-4 text-content font-medium text-left">Requested By</th>
+                        <th class="py-4 px-4 text-content font-medium text-left">Datetime</th>
+                        <th class="py-4 px-4 text-content font-medium text-left">Approval Status</th>
+                        <th class="py-4 px-4 text-content font-medium text-left">Action</th>
+                    </tr>
+                </thead>
+                <tbody class="py-4">
+                    <tr v-for="(row, index) in tableData" :key="index">
+                        <td class="py-5 px-4 border-b text-content-2 font-normal w-9">{{ index + 1 }}</td>
+                        <td class="py-5 px-4 border-b text-content-2 font-normal">{{ row.requestTitle }}</td>
+                        <td class="py-5 px-4 border-b text-content-2 font-normal">{{ row.relatedTo }}</td>
+                        <td class="py-5 px-4 border-b text-content-2 font-normal">{{ row.requestedBy }}</td>
+                        <td class="py-5 px-4 border-b text-content-2 font-normal">{{ row.datetime }}</td>
+                        <td class="py-5 px-4 border-b text-content-2 font-normal">
+                            <div
+                                class="bg-primary50 px-3 py-2 flex flex-row items-center justify-center rounded-3xl gap-1 w-fit">
+                                <h1 class="text-error500 text-content-2 font-normal">{{ row.approvalStatus }}</h1>
+                                <RiCloseLine class="text-error500 w-3 h-3" />
+                            </div>
+                        </td>
+                        <td class="py-5 px-4 border-b text-content-2 font-normal">
+                            <div class="flex flex-row gap-3 items-center">
+                                <img :src="icEdit" alt="" @click="toDetail(index)" class="cursor-pointer">
+                                <img :src="icDelete" alt="" @click="openDialog" class="cursor-pointer">
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
         <Pagination />
 
     </div>

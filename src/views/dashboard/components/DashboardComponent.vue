@@ -61,17 +61,19 @@
                 </button>
             </div>
             <template v-for="(values, index) in dashboardStore.depositData" :key="values">
-                <div class="flex flex-row justify-between items-center">
-                    <div class="flex flex-row gap-4 items-center">
+                <div class="flex flex-row justify-between items-center w-full">
+                    <div class="flex flex-row gap-4 items-center min-w-0">
                         <img :src="values.icon" alt="{{ values.title }}" class="w-[46px] h-[32px]">
-                        <div>
-                            <h1 class="text-content font-medium text-textPrimary overflow-ellipsis">{{ values.title }}
+                        <div class="min-w-0 flex-1">
+                            <h1 class="text-content font-medium text-textPrimary truncate max-w-full">{{ values.title }}
                             </h1>
-                            <h1 class="text-content-2 font-normal text-textScondary overflow-ellipsis">{{
+                            <h1 class="text-content-2 font-normal text-textScondary truncate max-w-full">{{
                                 values.subtitle }}</h1>
                         </div>
                     </div>
-                    <h1 class="text-content-2 font-normal text-success500">+{{ formatCurrency(values.value) }}</h1>
+                    <div class="flex-shrink-0 ml-4">
+                        <h1 class="text-content-2 font-normal text-success500">+{{ formatCurrency(values.value) }}</h1>
+                    </div>
                 </div>
                 <div v-if="index < dashboardStore.depositData.length - 1" class="h-[1px] w-full bg-natural200 my-4"></div>
                 <div v-else class="my-6"></div>
@@ -109,15 +111,15 @@
                             <template v-for="(values) in dashboardStore.chartData">
                                 <div class="flex flex-col items-center group">
                                     <!-- Stacked bars container -->
-                                    <div class="relative w-4 lg:w-[32px] flex flex-col-reverse">
+                                    <div class="relative w-4 md:w-7 lg:w-[32px] flex flex-col-reverse">
                                         <div :style="{ height: `${values[0] + 100}px` }"
-                                            class="absolute w-4 lg:w-[32px] bg-primary300 transition-all duration-300 rounded-t-sm lg:rounded-t-lg">
+                                            class="absolute w-4 md:w-7 lg:w-[32px] bg-primary300 transition-all duration-300 rounded-t-sm lg:rounded-t-lg">
                                         </div>
                                         <div :style="{ height: `${values[1] + 80}px` }"
-                                            class="absolute w-4 lg:w-[32px]  bg-primary500 transition-all duration-300 rounded-t-sm lg:rounded-t-lg">
+                                            class="absolute w-4 md:w-7 lg:w-[32px]  bg-primary500 transition-all duration-300 rounded-t-sm lg:rounded-t-lg">
                                         </div>
                                         <div :style="{ height: `${values[2] + 50}px` }"
-                                            class="absolute w-4 lg:w-[32px]  bg-primary700 transition-all duration-300 rounded-t-sm lg:rounded-t-lg">
+                                            class="absolute w-4 md:w-7 lg:w-[32px]  bg-primary700 transition-all duration-300 rounded-t-sm lg:rounded-t-lg">
                                         </div>
                                     </div>
                                 </div>

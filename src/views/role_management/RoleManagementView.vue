@@ -7,42 +7,44 @@
     </div>
     <div class="border border-natural200 px-4 py-10 bg-white mt-8 rounded-xl">
         <Search hint="Search by departement name" />
-        <table class="min-w-full bg-white border-none">
-            <thead class="bg-primary100 border-none">
-                <tr class="text-primary500">
-                    <th class="py-4 px-4 text-content font-medium">No</th>
-                    <th class="py-4 px-4 text-content font-medium text-left ">Role Name</th>
-                    <th class="py-4 px-4 text-content font-medium text-left">Role Access</th>
-                    <th class="py-4 px-4 text-content font-medium text-left">Action</th>
-                </tr>
-            </thead>
-            <tbody class="py-4">
-                <tr v-for="(row, index) in tableData" :key="index">
-                    <td class="py-5 px-4 border-b text-content-2 font-normal w-9">{{ index + 1 }}</td>
-                    <td class="py-5 px-4 border-b text-content-2 font-normal w-[250px]">{{ row.roleName }}</td>
-                    <td class="py-5 px-4 border-b text-content-2 font-normal ">
-                        <div class="flex flex-row">
-                            Group : <div v-for="value in row.access.group" :key="value"
-                                class="flex flex-row line-clamp-2 overflow-hidden leading-relaxed text-ellipsis">
-                                {{ value }},
+        <div class="overflow-x-auto">
+            <table class="min-w-full bg-white border-none table-auto overflow-scroll w-full">
+                <thead class="bg-primary100 border-none">
+                    <tr class="text-primary500">
+                        <th class="py-4 px-4 text-content font-medium">No</th>
+                        <th class="py-4 px-4 text-content font-medium text-left ">Role Name</th>
+                        <th class="py-4 px-4 text-content font-medium text-left">Role Access</th>
+                        <th class="py-4 px-4 text-content font-medium text-left">Action</th>
+                    </tr>
+                </thead>
+                <tbody class="py-4">
+                    <tr v-for="(row, index) in tableData" :key="index">
+                        <td class="py-5 px-4 border-b text-content-2 font-normal w-9">{{ index + 1 }}</td>
+                        <td class="py-5 px-4 border-b text-content-2 font-normal w-[250px]">{{ row.roleName }}</td>
+                        <td class="py-5 px-4 border-b text-content-2 font-normal ">
+                            <div class="flex flex-row">
+                                Group : <div v-for="value in row.access.group" :key="value"
+                                    class="flex flex-row line-clamp-2 overflow-hidden leading-relaxed text-ellipsis">
+                                    {{ value }},
+                                </div>
                             </div>
-                        </div>
-                        <div class="flex flex-row">
-                            Branch : <div v-for="value in row.access.branch" :key="value"
-                                class="flex flex-row line-clamp-2 overflow-hidden leading-relaxed text-ellipsis">
-                                {{ value }},
+                            <div class="flex flex-row">
+                                Branch : <div v-for="value in row.access.branch" :key="value"
+                                    class="flex flex-row line-clamp-2 overflow-hidden leading-relaxed text-ellipsis">
+                                    {{ value }},
+                                </div>
                             </div>
-                        </div>
-                    </td>
-                    <td class="py-5 px-4 border-b text-content-2 font-normal">
-                        <div class="flex flex-row gap-3 items-center">
-                            <img :src="icEdit" alt="" @click="toDetailRoute(index)" class="cursor-pointer">
-                            <img :src="icDelete" alt="">
-                        </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+                        </td>
+                        <td class="py-5 px-4 border-b text-content-2 font-normal">
+                            <div class="flex flex-row gap-3 items-center">
+                                <img :src="icEdit" alt="" @click="toDetailRoute(index)" class="cursor-pointer">
+                                <img :src="icDelete" alt="">
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
         <Pagination />
 
     </div>

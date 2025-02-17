@@ -1,6 +1,6 @@
 <template>
     <div class="bg-white rounded-xl max-w-screen-lg mx-auto py-4 border border-natural200">
-        <div class="px-28 ">
+        <div class="px-4 lg:px-28 ">
             <div class="text-center mt-4">
                 <h1 class="text-body text-textPrimary">Add New User</h1>
                 <h1 class="text-content text-textScondary pt-2">Create new internal user for credit administration
@@ -10,11 +10,14 @@
                 <h1 class="title-form">General Information</h1>
                 <h1 class="text-content-2 font-normal text-textScondary">General user information</h1>
                 <div class="flex flex-row gap-4 items-center my-4">
-                    <img :src="profile" alt="profile">
-                    <ButtonForm class="text-content-2 font-medium" title="Add Photo" />
+                    <img v-if="imagePreview" :src="imagePreview" class="w-20 h-20 rounded-full object-cover" alt="Preview" />
+                    <img v-else :src="profile" alt="profile">
+                    <!-- Hidden File Input -->
+                    <input type="file" ref="fileInput" @change="handleFileChange" accept="image/*" class="hidden" />
+                    <ButtonForm @click="triggerFileInput" class="text-content-2 font-medium" title="Add Photo" />
                 </div>
 
-                <div class="grid grid-cols-2 gap-4">
+                <div class="flex flex-col md:grid grid-cols-2 gap-4">
                     <div class="pt-1">
                         <h1 class="title-form pb-2">Full Name</h1>
                         <TextField placeholder="Input full name" />
@@ -31,7 +34,7 @@
                         <h1 class="title-form pb-2">Phone Number</h1>
                         <div class="flex flex-row gap-4">
                             <Dropdown :options="dataNumber" v-model="phoneNumber" placeholder="+.." header="Code"
-                                id="phoneNumber" />
+                                id="phoneNumber" class="w-24" />
                             <TextField placeholder="Input phone number" type="number" class="[appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none 
                                 [&::-webkit-inner-spin-button]:appearance-none" />
                         </div>
@@ -51,7 +54,7 @@
                     <div class="pt-1 col-span-2">
                         <h1 class="title-form pb-2">Branch Description</h1>
                         <div class="">
-                            <TextArea placeholder="Input address" max-line="1" />
+                            <TextArea hint="Input address" :max-line="3" />
                         </div>
                     </div>
                 </div>
@@ -65,13 +68,13 @@
                 </div>
                 <div class="w-full border border-natural200 px-4 py-4 my-3 rounded-lg">
                     <h1 class="title-form">Area</h1>
-                    <div class="flex flex-row gap-4 my-2">
-                        <Dropdown :options="departmentsData" v-model="selectedDepartment" placeholder="Select department"
-                            header="Department" id="dep" />
+                    <div class="flex flex-col md:flex-row gap-4 my-2">
+                        <Dropdown :options="departmentsData" v-model="selectedDepartment"
+                            placeholder="Select department" header="Department" id="dep" />
                         <Dropdown :options="roleData" v-model="headOfBranch" placeholder="Select role" header="Role"
                             id="role2" />
 
-                        <ButtonForm title="Filter" class="w-fit" />
+                        <ButtonForm title="Filter" class="w-full md:w-fit" />
                     </div>
                     <div class="overflow-x-auto border-l border-r border-natural200 rounded-lg">
                         <table class="min-w-full">
@@ -105,9 +108,9 @@
             </div>
         </div>
         <div class="w-full h-[1px] bg-natural200 my-3"></div>
-        <div class="flex justify-center py-4 px-6 gap-4 mx-auto max-w-screen-xl">
-            <ButtonForm title="Cancel" type="outline-border" class="w-[150px] " @click="back" />
-            <ButtonForm title="Add New User" @click="back" />
+        <div class="flex flex-col md:flex-row justify-center py-4 px-6 gap-4 mx-auto max-w-screen-xl">
+            <ButtonForm title="Cancel" type="outline-border" class="w-full md:w-[150px] " @click="back" />
+            <ButtonForm title="Add New User" @click="back" class="w-full md:w-[200px]" />
         </div>
     </div>
 </template>
@@ -126,6 +129,28 @@ const router = useRouter()
 
 const back = () => {
     router.back()
+}
+
+const fileInput = ref(null)
+const imagePreview = ref(null)
+
+const triggerFileInput = () => {
+    fileInput.value.click()
+}
+
+const handleFileChange = (event) => {
+    const file = event.target.files[0]
+    if (file) {
+        // Create preview URL
+        const reader = new FileReader()
+        reader.onload = (e) => {
+            imagePreview.value = e.target.result
+        }
+        reader.readAsDataURL(file)
+
+        // Emit file for parent component
+        emit('upload', file)
+    }
 }
 
 const maritalStatusData = [

@@ -7,10 +7,14 @@
                 <h1 class="text-caption text-textScondary font-semibold">{{ formatCurrency(250000000) }}</h1>
             </div>
             <div
-                class="absolute top-5 left-[60px] bg-white rounded-full px-4 py-4 t text-content font-medium text-textPrimary shadow-lg">
+                class="absolute top-5 lg:top-3 
+                left-[60px] md:left-[34px] lg:left-[1px] xl:left-16 2xl:left-24
+                bg-white rounded-full px-4 py-4 text-content font-medium text-textPrimary shadow-lg">
                 40%</div>
             <div
-                class="absolute bottom-9 right-[60px] bg-white rounded-full px-4 py-4 text-content font-medium text-textPrimary shadow-lg">
+                class="absolute bottom-9 lg:bottom-3 xl:bottom-10 
+                right-[50px] md:right-[30px] lg:right-[1px] xl:right-14 2xl:right-24
+                bg-white rounded-full px-4 py-4 text-content font-medium text-textPrimary shadow-lg">
                 60%</div>
         </div>
     </div>

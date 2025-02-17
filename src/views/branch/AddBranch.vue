@@ -6,7 +6,7 @@
                 <h1 class="text-content text-textScondary pt-3">Create a new branch for content management system
                 </h1>
             </div>
-            <div class="grid grid-cols-2 gap-4">
+            <div class="flex flex-col md:grid grid-cols-2 gap-4">
                 <div class="pt-3">
                     <h1 class="text-content text-textPrimary pb-2">Departement</h1>
                     <Dropdown v-model="selectedValue" :options="branchStore.departments" placeholder="Select department"
@@ -34,9 +34,9 @@
             </div>
         </div>
         <div class="w-full h-[1px] bg-natural200 my-3"></div>
-        <div class="flex justify-center py-4 px-6 gap-4 mx-auto max-w-screen-xl">
-            <ButtonForm title="Cancel" type="outline-border" class="w-[232px] " @click="back" />
-            <ButtonForm title="Add New Branch" class="w-[254px]" @click="handleSubmit" />
+        <div class="flex flex-col md:flex-row justify-center py-4 px-6 gap-4 mx-auto max-w-screen-xl">
+            <ButtonForm title="Cancel" type="outline-border" class="w-full  md:w-[232px] " @click="back" />
+            <ButtonForm title="Add New Branch" class="w-full md:w-[254px]" @click="handleSubmit" />
         </div>
     </div>
 </template>

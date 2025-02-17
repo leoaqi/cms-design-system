@@ -31,16 +31,16 @@
                 </div>
             </div>
             <div class="horizontal-divider"></div>
-            <div class="flex justify-center py-4 px-6 gap-4 mx-auto max-w-screen-xl">
+            <div class="flex flex-col md:flex-row justify-center py-4 px-6 gap-4 mx-auto max-w-screen-xl">
                 <ButtonForm 
                     title="Cancel" 
                     type="outline-border" 
-                    class="w-[232px]" 
+                    class="w-full md:w-[232px]" 
                     @click="backToDepartment" 
                 />
                 <ButtonForm 
                     title="Add New Department" 
-                    class="w-[232px]" 
+                    class="w-full md:w-[232px]" 
                     type="block"
                     :loading="isSubmitting"
                 />

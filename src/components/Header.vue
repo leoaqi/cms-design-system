@@ -18,11 +18,12 @@
       </nav>
 
       <div class="flex flex-row gap-8 items-center">
-        <img :src="icBell" alt="Notifications" class="w-[20px] h-[20px] object-cover">
-        <div class="flex flex-row items-center gap-3">
+        <img :src="icBell" alt="Notifications" class="w-3 h-3 lg:w-5  lg:h-5 object-cover">
+        <div class="hidden lg:flex flex-row items-center gap-3">
           <img :src="icProfile1" alt="Profile" class="w-[36px] h-[36px] rounded-full object-cover">
           <h1 class="text-content font-normal text-textPrimary">Hi, Administrator</h1>
         </div>
+        <RiMenuFill class="flex w-5 h-5 lg:hidden"/>
       </div>
     </div>
   </div>
@@ -33,6 +34,7 @@ import { useRoute } from 'vue-router';
 import { computed } from 'vue';
 import icBell from '@/assets/icons/ic_bell.svg';
 import icProfile1 from '@/assets/icons/ic_profile_1.png';
+import {RiMenuFill} from '@remixicon/vue'
 
 const route = useRoute();
 
