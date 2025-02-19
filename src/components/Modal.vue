@@ -2,7 +2,7 @@
     <Teleport to="body">
       <Transition name="modal-fade">
         <div v-if="modelValue" class="modal-overlay" @click="closeOnOverlayClick && $emit('update:modelValue', false)">
-          <div @click.stop>
+          <div @click.stop class="px-4 md:px-0">
             <slot/>
           </div>
         </div>

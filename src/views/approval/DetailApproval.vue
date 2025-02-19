@@ -1,7 +1,7 @@
 <template>
-    <div class="flex flex-row justify-between items-center">
+    <div class="flex flex-col lg:flex-row justify-between items-center">
         <h1 class="font-medium text-body">Detail Approval</h1>
-        <div class="flex flex-row gap-3">
+        <div class="flex flex-row gap-3 pt-4 lg:pt-0">
             <button class="btn-border-icon flex items-center" @click="openDialog">
                 <img :src="icCheckCircle" alt="" class="w-[16px] h-[16px] object-cover text-primary500">
                 <h1 class="text-content-2 text-left font-medium">Approve Request</h1>

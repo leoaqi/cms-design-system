@@ -1,5 +1,5 @@
 <template>
-    <div v-if="modelValue" class="bg-white rounded-lg shadow-xl w-[500px]">
+    <div v-if="modelValue" class="bg-white rounded-lg shadow-xl w-full md:w-[500px]">
         <!-- Header -->
         <div class="bg-primary500 text-white px-6 py-4 rounded-t-lg flex justify-between items-center">
             <h3 class="text-body-2 font-medium">Delete Branch</h3>
